@@ -1,0 +1,29 @@
+TimelineEvent:
+  actAs:
+    Timestampable: ~ 
+  columns:
+    event_type:
+      type: string(255)
+    subject_type:
+      type: string(255)
+    subject_id:
+      type: integer
+    actor_type:
+      type: string(255)
+    actor_id:
+      type: integer
+    Relations:
+      Actor:
+        type: one
+        polymorphic: true
+      Subject:
+        type: one
+        polymorphic: true
+    # secondary_subject_type:
+    #   type: string(255)
+    # secondary_subject_id:
+    #   type: integer    
+   
+   
+   
+   
