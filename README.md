@@ -20,11 +20,8 @@ Installation
 
 Usage
 =====
-This plugin requires you to have a TimelineEvent model. The simplest way is to use the doctrine generator:
-
-          ./symfony doctrine:build --all --and-load
-          
-Next step is to determine what generates an event in your schema.yml
+     
+First step is to determine what generates an event in your schema.yml
 
           Comment:
             actAs:
@@ -55,6 +52,11 @@ Next step is to determine what generates an event in your schema.yml
                 local: post_id
                 foreign: id
                 onDelete: CASCADE
+
+
+The plugin requires you to have a TimelineEvent model. The simplest way is to use the doctrine generator:
+
+        ./symfony doctrine:build --all --and-load
                 
 Parameters for Timelinable
 ==========================
