@@ -1,3 +1,8 @@
+sfDoctrineActAsTimelinablePlugin
+================================
+
+Easily build timelines, much like GitHub’s or Facebook's (very lite) news feed. 
+
 Installation
 ============
 
@@ -91,6 +96,7 @@ In the view:
                 <li>
                   <?php echo $ti->getActor()?> 
                   <?php echo $ti->getEventType()?> 
+                  <?php echo $ti->getSubjectType()?> 
                   in
                   <?php echo $ti->getSecondarySubject()?>
                 </li>
@@ -101,7 +107,8 @@ In the view:
 Warning
 -------
 
-Does not work with many to many relationships.
+ - Does not work with many to many relationships.
+ - Each call to getActor, getEventType [...] generate a database request ! Be careful :) Used the pagination :)
 
 License
 -------
