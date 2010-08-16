@@ -62,16 +62,25 @@ class TimelineableListener extends Doctrine_Record_Listener
   
   protected function newEvent(Doctrine_Event $event, $type)
   {
-    $invoker = $event->getInvoker();
+    $invoker      = $event->getInvoker();
     $subjectClass = get_class($invoker);
-    $Ainvoker = $invoker->toArray();
-    $subjectId = $invoker['id'];
+    $Ainvoker     = $invoker->toArray();
+    $subjectId    = $invoker['id'];
+    $attribut     = '_'.$type.'_fires';
     
-    $attribut = '_'.$type.'_fires';
+    
     foreach($this->{$attribut} as $name => $options)
     {
-      $actorClass = $options['actor'];
-      $actorId = $invoker[$actorClass]['id'];
+      $actorClass   = $options['actor'];
+      $actorId      = $invoker[$actorClass]['id'];
+      $secondClass  = '';
+      $secondId     = '';
+      
+      if(array_key_exists('secondary_subject', $options))
+      {
+        $secondClass  = $options['secondary_subject'];
+        $secondId     = $invoker[$secondClass]['id'];
+      }
       
       $eventClass = $this->table;
       $event = new $eventClass();
@@ -80,8 +89,8 @@ class TimelineableListener extends Doctrine_Record_Listener
       $event->subject_id              = ($subjectId) ? $subjectId :'';
       $event->actor_type              = ($actorClass) ? $actorClass : '';
       $event->actor_id                = ($actorId) ? $actorId: '' ;
-      //$event->secondary_subject_type  = ;
-      //$event->secondary_subject_id    = '';
+      $event->secondary_subject_type  = ($secondClass)? $secondClass : '';
+      $event->secondary_subject_id    = ($secondId)? $secondId : '';;
       $event->save();
     }
   }

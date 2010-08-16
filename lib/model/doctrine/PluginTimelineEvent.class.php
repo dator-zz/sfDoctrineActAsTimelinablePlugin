@@ -12,5 +12,31 @@
  */
 abstract class PluginTimelineEvent extends BaseTimelineEvent
 {
+  public function getActor()
+  { 
+    if($this->getActorType() && $this->getActorId())
+    {
+      return Doctrine::getTable($this->getActorType())->find($this->getActorId());
+    }
+    return null;
+  }
+  
+  public function getSubject()
+  {
+    if($this->getSubjectType() && $this->getSubjectId())
+    {
+      return Doctrine::getTable($this->getSubjectType())->find($this->getSubjectId());
+    }
+    return null;
+  }
+  
+  public function getSecondarySubject()
+  {
+    if($this->getSecondarySubjectType() && $this->getSecondarySubjectId())
+    {
+      return Doctrine::getTable($this->getSecondarySubjectType())->find($this->getSecondarySubjectId());
+    }
+    return null;
+  }
 
 }

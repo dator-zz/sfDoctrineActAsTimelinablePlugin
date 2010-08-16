@@ -7,4 +7,9 @@
  */
 class PluginTimelineEventTable extends Doctrine_Table
 {
+  public function getTimeline()
+  {
+    $all = $this->createQuery('te')->execute();
+
+  }
 }
