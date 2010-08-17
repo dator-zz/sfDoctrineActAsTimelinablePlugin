@@ -112,4 +112,5 @@ Warning
 
 License
 -------
-Copyright © 2010 Clément JOBEILI, released under the MIT license     
+Copyright © 2010 Clément JOBEILI, released under the MIT license.
+Largely inspired http://github.com/jamesgolick/timeline_fu/
