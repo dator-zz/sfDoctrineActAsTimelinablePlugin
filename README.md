@@ -108,7 +108,7 @@ Warning
 -------
 
  - Does not work with many to many relationships.
- - Each call to getActor, getEventType [...] generate a database request ! Be careful :) Used the pagination :)
+ - Each call to getActor, getEventType [...] generate a database request ! Be careful :) Use the pagination :)
 
 License
 -------
