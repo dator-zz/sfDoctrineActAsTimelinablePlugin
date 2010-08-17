@@ -1,13 +1,13 @@
 <?php
 
-class Doctrine_Template_Timelineable extends Doctrine_Template
+class Doctrine_Template_Timelinable extends Doctrine_Template
 {
   protected $_options = array(
   );
   
   public function setTableDefinition()
   {
-    $this->addListener(new TimelineableListener($this->_options)); 
+    $this->addListener(new TimelinableListener($this->_options)); 
   }
 
   public function setUp()
