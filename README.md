@@ -30,7 +30,7 @@ First step is to determine what generates an event in your schema.yml
 
           Comment:
             actAs:
-              Timelineable:
+              Timelinable:
                 new_comment: 
                   on: save
                   actor: User
@@ -67,7 +67,7 @@ Parameters for Timelinable
 ==========================
 
 - The first param is a custom name for the event type. It’ll be your way of figuring out what events your reading back from the timeline_events table later and to internationalize it. 
-  - :new_comment in the example 
+  - new_comment in the example 
 
 - The rest all fit neatly in an options hash. 
   - on => [String event] 
